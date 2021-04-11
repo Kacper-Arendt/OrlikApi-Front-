@@ -1,0 +1,30 @@
+.Facilities {
+    width: 100%;
+    margin: 15px auto;
+}
+
+.SectionName  {
+    text-align: center;
+    width: 100%;
+    margin: 15px auto;
+    font-size: 46px;
+    text-transform: Capitalize;
+}
+
+.Objects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px auto 0;
+}
+
+
+@media screen and (min-width: 728px) {
+  .Objects {
+      flex-direction: row;
+      margin: 30px 15px;
+  }
+}
+
