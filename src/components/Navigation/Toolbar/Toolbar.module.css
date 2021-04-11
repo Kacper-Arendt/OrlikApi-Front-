@@ -1,0 +1,23 @@
+.Toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #eee;
+    align-items:  center;
+    padding: 7px;
+    align-content: space-between;
+    position: fixed;
+}
+.Logo {
+    margin-left: 25px;
+}
+
+.Toolbar .Logo h1 {
+    display: inline-block;
+    font-size: 35px;
+    margin: auto 0;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+}

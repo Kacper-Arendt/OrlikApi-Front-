@@ -1,0 +1,14 @@
+.NavigationItem {
+    margin: 0px 15px;
+    font-size: 18px;
+    width: 100%;
+}
+.NavigationItem a {
+    text-decoration: none;
+    color: black;
+}
+
+.NavigationItem a:hover {
+    border-bottom: 2px solid #888;
+    color: #888;
+}
