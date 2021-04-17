@@ -1,81 +1,74 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
 import classes from './Login.module.css'
 import Input from '../../components/UI/Input/Input';
-
-import { login } from "../Auth/Auth";
+import { useAuth } from "../../context/auth";
+import { Logger } from "../Auth/Auth";
 
 
 const Login = (props) => {
-    const form = useRef();
-    const checkBtn = useRef();
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [error, setError] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const { isAuth, setAuth } = useAuth();
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
-
-
-    const onChangeHandler = (event) => {
-        const { name, value } = event.currentTarget;
-
-        if (name === 'username') {
-            setUsername(value)
-        } else if (name === 'password') {
-            setPassword(value)
-        }
-    }
+    console.log({ isAuth });
 
     const loginHandler = (event) => {
         event.preventDefault();
 
-        setMessage('');
-
-
-        login(username, password)
-            .then(
-                () => {
-                    props.history.push("/");
-                    window.location.reload();
-                },
+        Logger(username, password)
+            .then(result => {
+                if (result.status === 200) {
+                    setAuth(true)
+                    setLoggedIn(true);
+                }
+            },
                 (error) => {
                     const resMessage =
                         (error.response.data.message)
 
-                    setMessage(resMessage);
+                    setError(resMessage);
                 }
             );
     };
+
+    if (isLoggedIn) {
+        return <Redirect to="/" />;
+    }
 
 
     return (
         <div className={classes.Login}>
             <h2>Please Sign In</h2>
-            <form onSubmit={loginHandler} ref={form}>
+            <form onSubmit={loginHandler}>
                 <Input
-                    inputType="input"
+                    inputtype="input"
                     type="text"
-                    name="username"
-                    placeholder="Your Email"
-                    onChange={(event) => {
-                        onChangeHandler(event)
+                    value={username}
+                    placeholder="Username"
+                    onChange={e => {
+                        setUsername(e.target.value);
                     }}
                 />
 
                 <Input
-                    inputType="input"
+                    inputtype="input"
                     type="password"
-                    name="password"
-                    placeholder="Your Password"
-                    onChange={(event) => {
-                        onChangeHandler(event)
+                    value={password}
+                    placeholder="Password"
+                    onChange={e => {
+                        setPassword(e.target.value);
                     }}
                 />
 
-                {message && (
+                {error && (
                     <div className={classes.Message} role="alert">
-                        {message}
+                        {error}
                     </div>
                 )}
-                <button ref={checkBtn}>Login</button>
+                <button >Login</button>
             </form>
         </div>
     );

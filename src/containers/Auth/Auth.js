@@ -1,26 +1,26 @@
 import axios from 'axios';
 
-const  baseUrl = "http://localhost/api/";
+const baseUrl = "http://localhost/api/";
 
-const login = (username, password) => {
-     return axios.post(baseUrl+ "login", {
-            username,
-            password,
-        })
-        .then ((response) => {
+const Logger = (username, password) => {
+    return axios.post(baseUrl + "login", {
+        username,
+        password,
+    })
+        .then((response) => {
             if (response.data.token) {
-                localStorage.setItem("user", JSON.stringify(response.data.token));
+                localStorage.setItem("token", JSON.stringify(response.data.token));
             }
-            return response.data;
+            return response;
         });
 };
 
-const logout = () => {
-    localStorage.removeItem("user");
+const Logout = () => {
+    localStorage.removeItem("token");
 };
 
 
-export   {
-    login,
-    logout
+export {
+    Logger,
+    Logout
 };
