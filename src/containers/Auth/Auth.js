@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 const baseUrl = "http://localhost/api/";
 
@@ -17,6 +18,10 @@ const Logger = (username, password) => {
 
 const Logout = () => {
     localStorage.removeItem("token");
+
+    return (
+        <Redirect to="/" />
+    )
 };
 
 

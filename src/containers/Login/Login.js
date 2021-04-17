@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import classes from './Login.module.css'
 import Input from '../../components/UI/Input/Input';
-import { useAuth } from "../../context/auth";
 import { Logger } from "../Auth/Auth";
+import { AuthContext } from '../../App';
 
 
 const Login = (props) => {
@@ -11,7 +11,7 @@ const Login = (props) => {
     const [error, setError] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { isAuth, setAuth } = useAuth();
+    const { isAuth, setAuth } = React.useContext(AuthContext);
 
     console.log({ isAuth });
 

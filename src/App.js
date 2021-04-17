@@ -7,32 +7,32 @@ import Footer from './components/Footer/Foot';
 import Home from './containers/Home/Home';
 import Facilities from './containers/Facilities/Facilities';
 import Login from './containers/Login/Login';
+import { Logout } from './containers/Auth/Auth'
+// import Logout from './containers/Logout/Logout'
 import PrivateRoute from './PrivateRoute';
-import { AuthContext } from "./context/auth";
 
+export const AuthContext = React.createContext();
 
 function App(props) {
-    const [isAuth, setAuth] = useState(true);
+    const [isAuth, setAuth] = useState();
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("token");
         if (loggedInUser) {
-            setAuth(...isAuth, true);
+            setAuth(true);
         }
     }, []);
-
-    // if there's no user, show the login form
-    let auth = <div>{isAuth}</div>
 
 
     return (
         <AuthContext.Provider value={{ isAuth, setAuth }}>
             <div className={classes.App}>
                 <Toolbar />
-                {auth}
                 <Switch>
+
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/logout" component={Logout} />
+                    <Route path="/" component={Home} />
                     <PrivateRoute path="/facilities" component={Facilities} />
 
                 </Switch>
