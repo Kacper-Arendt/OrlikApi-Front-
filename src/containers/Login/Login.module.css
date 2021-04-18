@@ -1,4 +1,4 @@
-.Login  {
+.Login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +19,7 @@
     margin: 0 30px 20px;
 
 }
+
 .Message {
     margin: 30px 0;
     font-size: 28px;
@@ -34,4 +35,21 @@
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+.Signup {
+    margin-top: 100px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    transition-property: font-size;
+    transition-duration: 0.9s;
+
+}
+
+.Signup:hover {
+    border-bottom: 2px solid #888;
+    color: #888;
+    font-size: 23px;
+
 }

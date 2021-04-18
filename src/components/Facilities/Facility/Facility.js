@@ -6,7 +6,7 @@ import Image from '../../../assets/pitch (1).svg';
 const facility = () => (
     <div className={classes.Facility}>
         <div className={classes.Image}>
-            <img src={Image} alt="Our Object"/>
+            <img src={Image} alt="Our Object" />
         </div>
         <div className={classes.About}>
             <h2>Name</h2>

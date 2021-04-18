@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import classes from './Login.module.css'
 import Input from '../../components/UI/Input/Input';
 import { Logger } from "../Auth/Auth";
@@ -70,6 +70,7 @@ const Login = (props) => {
                 )}
                 <button >Login</button>
             </form>
+            <Link className={classes.Signup} to="/signup">Don't have an account?</Link>
         </div>
     );
 }

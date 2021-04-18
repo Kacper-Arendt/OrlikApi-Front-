@@ -32,8 +32,8 @@ function App(props) {
 
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
-                    <Route path="/" component={Home} />
                     <PrivateRoute path="/facilities" component={Facilities} />
+                    <Route path="/" component={Home} />
 
                 </Switch>
                 <Footer />
