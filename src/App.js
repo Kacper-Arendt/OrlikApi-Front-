@@ -8,7 +8,6 @@ import Home from './containers/Home/Home';
 import Facilities from './containers/Facilities/Facilities';
 import Login from './containers/Login/Login';
 import { Logout } from './containers/Auth/Auth'
-// import Logout from './containers/Logout/Logout'
 import PrivateRoute from './PrivateRoute';
 
 export const AuthContext = React.createContext();
