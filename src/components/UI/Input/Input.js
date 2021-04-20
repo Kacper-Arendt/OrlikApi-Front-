@@ -12,6 +12,12 @@ const input = (props) => {
         case ('textarea'):
             inputEl = <textarea className={classes.InputEl} {...props} />
             break;
+        case ('checkbox'):
+            inputEl =
+                <label className={classes.CheckLabel} htmlFor={props.id}>{props.text}
+                    <input className={classes.Check} type="checkbox" name={props.id} value={props.value} id={props.id} /></label>
+
+            break;
         default:
             inputEl = <input className={classes.InputEl} {...props} />
     }

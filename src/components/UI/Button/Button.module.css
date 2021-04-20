@@ -1,0 +1,38 @@
+ .Button {
+     outline: none;
+     cursor: pointer;
+     padding: 5px;
+     margin: 10px;
+     font-weight: bold;
+     letter-spacing: 1px;
+     justify-content: center;
+     border: 2px solid black;
+     border-radius: 5px;
+     width: 100px;
+     height: 40px;
+     display: block;
+     font-size: 20px;
+     color: white;
+ }
+
+ .Button:disabled {
+     color: #ccc;
+     cursor: not-allowed;
+ }
+
+
+ .Danger {
+     color: #944317;
+ }
+
+ .Success {
+     background: linear-gradient(to right, white 50%, #02731E 50%);
+     background-size: 200% 100%;
+     background-position: right bottom;
+     transition: all .5s ease-out;
+ }
+
+ .Success:hover {
+     background-position: left bottom;
+     color: black;
+ }

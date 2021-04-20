@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Redirect, Link } from 'react-router-dom';
-import classes from './Login.module.css'
-import Input from '../../components/UI/Input/Input';
 import { Logger } from "../Auth/Auth";
 import { AuthContext } from '../../App';
 
+import classes from './Login.module.css'
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button'
 
 const Login = (props) => {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -13,7 +14,6 @@ const Login = (props) => {
     const [password, setPassword] = useState("");
     const { isAuth, setAuth } = React.useContext(AuthContext);
 
-    console.log({ isAuth });
 
     const loginHandler = (event) => {
         event.preventDefault();
@@ -68,7 +68,8 @@ const Login = (props) => {
                         {error}
                     </div>
                 )}
-                <button >Login</button>
+                <Button btnType="Success">Login</Button>
+
             </form>
             <Link className={classes.Signup} to="/signup">Don't have an account?</Link>
         </div>
