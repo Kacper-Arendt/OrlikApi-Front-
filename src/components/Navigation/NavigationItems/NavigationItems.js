@@ -4,10 +4,9 @@ import NavigationItem from './NavigationItem/NavigationItem';
 import classes from "./NavigationItems.module.css";
 import { AuthContext } from '../../../App';
 
-
 const NavigationItems = () => {
     const { isAuth } = React.useContext(AuthContext);
-    console.log(`nav items ${isAuth}`);
+
     let log = <NavigationItem url='/login'>Login</NavigationItem>
 
     if (isAuth) {
