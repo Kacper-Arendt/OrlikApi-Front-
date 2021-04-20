@@ -5,10 +5,10 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 const toolbar = () => (
     <header className={classes.Toolbar}>
         <div className={classes.Logo}>
-            <h1>Orlik</h1>
+            <h1><a href="/">Orlik</a></h1>
         </div>
         <nav className={classes.Navigation}>
-            <NavigationItems/>
+            <NavigationItems />
         </nav>
     </header>
 )
