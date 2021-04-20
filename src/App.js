@@ -6,6 +6,7 @@ import Toolbar from './components/Navigation/Toolbar/Toolbar';
 import Footer from './components/Footer/Foot';
 import Home from './containers/Home/Home';
 import Facilities from './containers/Facilities/Facilities';
+import Register from './containers/Register/Register'
 import Login from './containers/Login/Login';
 import { Logout } from './containers/Auth/Auth'
 import PrivateRoute from './PrivateRoute';
@@ -28,7 +29,7 @@ function App(props) {
             <div className={classes.App}>
                 <Toolbar />
                 <Switch>
-
+                    <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
                     <PrivateRoute path="/facilities" component={Facilities} />
