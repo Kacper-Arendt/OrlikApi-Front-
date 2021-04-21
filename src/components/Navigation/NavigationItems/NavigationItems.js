@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from "./NavigationItems.module.css";
@@ -6,7 +6,6 @@ import { AuthContext } from '../../../App';
 
 const NavigationItems = () => {
     const { isAuth } = React.useContext(AuthContext);
-
     return (
         <ul className={classes.NavigationItems}>
             <NavigationItem url='/'>Home</NavigationItem>
