@@ -8,11 +8,12 @@
      justify-content: center;
      border: 2px solid black;
      border-radius: 5px;
-     width: 100px;
      height: 40px;
      display: block;
      font-size: 20px;
      color: white;
+     white-space: nowrap;
+
  }
 
  .Button:disabled {

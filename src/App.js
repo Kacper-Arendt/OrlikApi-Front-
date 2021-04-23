@@ -26,16 +26,18 @@ function App() {
     return (
         <AuthContext.Provider value={{ isAuth, setAuth }}>
             <div className={classes.App}>
-                <Toolbar />
-                <Switch>
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/logout" component={Logout} />
-                    <Route exact path="/facilities" component={Facilities} />
-                    <Route path="/" component={Home} />
+                <React.Fragment className={classes.Content}>
+                    <Toolbar />
+                    <Switch>
+                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/logout" component={Logout} />
+                        <Route exact path="/facilities" component={Facilities} />
+                        <Route path="/" component={Home} />
 
-                </Switch>
-                <Footer />
+                    </Switch>
+                </React.Fragment>
+                <Footer className={classes.Footer} />
             </div>
         </AuthContext.Provider>
     );

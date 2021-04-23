@@ -35,13 +35,18 @@ const Facilities = (props) => {
     }, []);
 
 
-
     return (
         <section className={classes.Facilities}>
             <h2 className={classes.SectionName}> {props.children} </h2>
             <div className={classes.Objects}>
-                <Facility />
-                <Facility />
+                {facilities.map(facility =>
+                    <Facility
+                        key={facility.id}
+                        name={facility.name}
+                        city={facility.address.city}
+                        street={facility.address.street}
+                        streetNumber={facility.address.streetNumber}
+                    />)}
             </div>
         </section>
     );
