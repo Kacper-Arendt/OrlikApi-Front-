@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import axios from "axios";
-import classes from './Facilities.module.css';
-import Facility from './Facility/Facility';
-
-
-const Facilities = (props) => {
+const FacilitiesList = () => {
     const [facilities, setFacilities] = useState([]);
+
 
     useEffect(() => {
         const token = localStorage.getItem(`token`);
@@ -34,16 +31,11 @@ const Facilities = (props) => {
             )
     }, []);
 
-
-
     return (
-        <section className={classes.Facilities}>
-            <h2 className={classes.SectionName}> {props.children} </h2>
-            <div className={classes.Objects}>
-                <Facility />
-                <Facility />
-            </div>
-        </section>
-    );
-}
-export default Facilities;
+        <div>
+            <h1></h1>
+        </div>
+    )
+};
+
+export default FacilitiesList;

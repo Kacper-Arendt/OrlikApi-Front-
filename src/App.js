@@ -9,11 +9,10 @@ import Facilities from './containers/Facilities/Facilities';
 import Register from './containers/Register/Register'
 import Login from './containers/Login/Login';
 import { Logout } from './containers/Auth/Auth'
-import PrivateRoute from './PrivateRoute';
 
 export const AuthContext = React.createContext();
 
-function App(props) {
+function App() {
     const [isAuth, setAuth] = useState();
 
     useEffect(() => {

@@ -10,7 +10,7 @@ const Logger = (username, password) => {
     })
         .then((response) => {
             if (response.data.token) {
-                localStorage.setItem("token", JSON.stringify(response.data.token));
+                localStorage.setItem("token", JSON.stringify(`Bearer ${response.data.token}`));
             }
             return response;
         });
