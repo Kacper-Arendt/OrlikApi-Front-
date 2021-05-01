@@ -6,9 +6,9 @@ import Facility from './Facility/Facility';
 import Search from '../Search/Search'
 import { AuthContext } from '../../App';
 
-
 const Facilities = (props) => {
     const [facilities, setFacilities] = useState([]);
+    const [pagination, setPagination] = useState();
     const { isAuth } = React.useContext(AuthContext);
     const initVal = {
         name: '',
@@ -16,7 +16,6 @@ const Facilities = (props) => {
         maxPerPage: 10
     }
     const [filters, setFilters] = useState(initVal);
-
 
     useEffect(() => {
         if (isAuth) {
@@ -44,6 +43,7 @@ const Facilities = (props) => {
                             createdAt: el.facility.createdAt
                         })
                     });
+                    setPagination(response.data.pagination.total);
                     setFacilities(loadedFacilities);
                 }
                 )
@@ -51,10 +51,10 @@ const Facilities = (props) => {
     }
         , [isAuth, filters]);
 
-
     return (
         <section className={classes.Facilities}>
             <Search onClicked={setFilters} />
+            <h2 className={classes.ResultsNmb}>Search Results:{pagination}</h2>
             <div className={classes.Objects}>
                 {facilities.map(facility =>
                     <Facility

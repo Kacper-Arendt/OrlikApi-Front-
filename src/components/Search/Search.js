@@ -8,7 +8,7 @@ import SelectPitchType from '../Search/Select'
 function Search({ onClicked }) {
     const initVal = {
         name: '',
-        maxPerPage: 10
+        maxPerPage: 10,
     }
     const [filters, setFilters] = useState(initVal);
 
@@ -42,10 +42,17 @@ function Search({ onClicked }) {
                     placeholder="Name"
                     value={filters.name}
                     inputtype="input"
-                    type="text"
+                    type="search"
                     onChange={onHandleChange}
                 />
                 <SelectPitchType selectHandler={selectHandler} />
+                <Input
+                    style={{ width: "90px" }}
+                    name="maxPerPage"
+                    value={filters.maxPerPage}
+                    inputtype="input"
+                    type="number"
+                    onChange={onHandleChange} />
                 <Button
                     btnType="Success">Search</Button>
             </form>
