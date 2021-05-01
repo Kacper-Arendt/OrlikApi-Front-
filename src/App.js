@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import classes from './App.module.css';
 import Toolbar from './components/Navigation/Toolbar/Toolbar';
-import Footer from './components/Footer/Foot';
 import Home from './containers/Home/Home';
 import Facilities from './containers/Facilities/Facilities';
 import Register from './containers/Register/Register'
@@ -26,7 +25,7 @@ function App() {
     return (
         <AuthContext.Provider value={{ isAuth, setAuth }}>
             <div className={classes.App}>
-                <React.Fragment className={classes.Content}>
+                <React.Fragment>
                     <Toolbar />
                     <Switch>
                         <Route exact path="/register" component={Register} />
@@ -37,7 +36,6 @@ function App() {
 
                     </Switch>
                 </React.Fragment>
-                <Footer className={classes.Footer} />
             </div>
         </AuthContext.Provider>
     );
