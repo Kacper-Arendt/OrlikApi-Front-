@@ -10,7 +10,7 @@ function Register() {
     const [setPassword] = useState("");
     const [setFirstName] = useState("");
     const [setLastName] = useState("");
-
+  
     return (
         <div className={classes.Register}>
             <h2>Sign Up</h2>
