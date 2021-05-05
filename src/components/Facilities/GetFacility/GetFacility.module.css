@@ -1,0 +1,72 @@
+.GetFacility {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #222;
+    width: 80vw;
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 30px 45px 100px;
+    box-shadow: 3px 3px 3px 6px #222;
+    color: grey;
+    letter-spacing: 1px;
+}
+
+.About {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 10px 10px;
+}
+
+.About h2 {
+    margin: 10px 0;
+}
+
+.About p {
+    margin-top: 5px;
+}
+
+.About li {
+    list-style: none;
+}
+
+.Name {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 40px;
+}
+
+.Address {
+    margin: 15px;
+    padding: 8px;
+    flex: 1;
+
+}
+
+.Address {
+    margin: 15px;
+    padding: 8px;
+    flex: 1;
+}
+
+.PitchTypes {
+    flex: 1;
+
+    margin: 15px;
+    padding: 8px;
+}
+
+
+.Loading {
+    font-size: 50px;
+    text-align: center;
+}
+
+.Image {
+    margin: 20px auto;
+    width: 250px;
+    height: 250px;
+}

@@ -52,6 +52,7 @@ function Search({ onClicked }) {
                     value={filters.maxPerPage}
                     inputtype="input"
                     type="number"
+                    min="1"
                     onChange={onHandleChange} />
                 <Button
                     btnType="Success">Search</Button>

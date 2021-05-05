@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 import classes from './Facilities.module.css';
@@ -10,27 +11,27 @@ const Facilities = (props) => {
     const [facilities, setFacilities] = useState([]);
     const [pagination, setPagination] = useState();
     const { isAuth } = React.useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false);
+    const history = useHistory();
+
     const initVal = {
         name: '',
         pitchTypes: null,
-        maxPerPage: 10
+        maxPerPage: 20
     }
     const [filters, setFilters] = useState(initVal);
 
     useEffect(() => {
         if (isAuth) {
-
+            setIsLoading(true);
             const token = localStorage.getItem(`token`);
-
             const config = {
                 params:
-                    filters
-                ,
+                    filters,
                 headers: {
                     Authorization: token.slice(1, -1)
                 }
             }
-
             axios.get('http://localhost/api/facilities', config)
                 .then(response => {
                     const loadedFacilities = [];
@@ -45,27 +46,35 @@ const Facilities = (props) => {
                     });
                     setPagination(response.data.pagination.total);
                     setFacilities(loadedFacilities);
-                }
-                )
+                    setIsLoading(false);
+                });
         }
+    }, [isAuth, filters]);
+
+    const routeChange = (id) => {
+        let path = `facilities/${id}`;
+        history.push(path);
     }
-        , [isAuth, filters]);
 
     return (
         <section className={classes.Facilities}>
             <Search onClicked={setFilters} />
-            <h2 className={classes.ResultsNmb}>Search Results:{pagination}</h2>
-            <div className={classes.Objects}>
-                {facilities.map(facility =>
-                    <Facility
-                        key={facility.id}
-                        name={facility.name}
-                        city={facility.address.city}
-                        street={facility.address.street}
-                        streetNumber={facility.address.streetNumber}
-                        clicked={() => { console.log(facility.id) }}
-                    />)}
-            </div>
+            <h2 className={classes.ResultsNmb}>Total:{pagination}</h2>
+            {isLoading ? (
+                <div className={classes.Loading}>Loading...</div>
+            ) : (
+                <div className={classes.Objects}>
+                    {facilities.map(facility =>
+                        <Facility
+                            key={facility.id}
+                            name={facility.name}
+                            city={facility.address.city}
+                            street={facility.address.street}
+                            streetNumber={facility.address.streetNumber}
+                            clicked={() => { routeChange(facility.id) }}
+                        />)}
+                </div>
+            )}
         </section>
     );
 }

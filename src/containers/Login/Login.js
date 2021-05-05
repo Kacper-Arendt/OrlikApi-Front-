@@ -70,7 +70,7 @@ const Login = (props) => {
                 <Button btnType="Success">Login</Button>
 
             </form>
-            <Link className={classes.Signup} to="/signup">Don't have an account?</Link>
+            <Link className={classes.Signup} to="/register">Don't have an account?</Link>
         </div>
     );
 }

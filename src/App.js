@@ -8,6 +8,7 @@ import Facilities from './containers/Facilities/Facilities';
 import Register from './containers/Register/Register'
 import Login from './containers/Login/Login';
 import { Logout } from './containers/Auth/Auth'
+import GetFacility from "./containers/GetFacility/GetFacility";
 
 export const AuthContext = React.createContext();
 
@@ -21,7 +22,6 @@ function App() {
         }
     }, []);
 
-
     return (
         <AuthContext.Provider value={{ isAuth, setAuth }}>
             <div className={classes.App}>
@@ -32,6 +32,7 @@ function App() {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
                         <Route exact path="/facilities" component={Facilities} />
+                        <Route exact path={`/facilities/:id`} component={GetFacility} />
                         <Route path="/" component={Home} />
 
                     </Switch>
