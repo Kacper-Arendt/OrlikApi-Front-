@@ -6,11 +6,11 @@ import Input from "../../components/UI/Input/Input";
 import Button from '../../components/UI/Button/Button';
 
 function Register() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-
+    const [setEmail] = useState("");
+    const [setPassword] = useState("");
+    const [setFirstName] = useState("");
+    const [setLastName] = useState("");
+  
     return (
         <div className={classes.Register}>
             <h2>Sign Up</h2>

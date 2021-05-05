@@ -6,7 +6,6 @@ import { AuthContext } from '../../../App';
 
 const NavigationItems = () => {
     const { isAuth } = React.useContext(AuthContext);
-
     return (
         <ul className={classes.NavigationItems}>
             <NavigationItem url='/'>Home</NavigationItem>

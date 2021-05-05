@@ -12,7 +12,7 @@ const Login = (props) => {
     const [error, setError] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { isAuth, setAuth } = React.useContext(AuthContext);
+    const { setAuth } = React.useContext(AuthContext);
 
 
     const loginHandler = (event) => {
@@ -44,10 +44,9 @@ const Login = (props) => {
             <h2>Please Sign In</h2>
             <form onSubmit={loginHandler}>
                 <Input
+                    placeholder="Email"
                     inputtype="input"
-                    type="text"
-                    value={username}
-                    placeholder="Username"
+                    type="email"
                     onChange={e => {
                         setUsername(e.target.value);
                     }}
@@ -71,7 +70,7 @@ const Login = (props) => {
                 <Button btnType="Success">Login</Button>
 
             </form>
-            <Link className={classes.Signup} to="/signup">Don't have an account?</Link>
+            <Link className={classes.Signup} to="/register">Don't have an account?</Link>
         </div>
     );
 }
