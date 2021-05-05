@@ -9,7 +9,6 @@
     align-content: space-between;
     align-items: center;
     background-color: #eee;
-
 }
 
 .Logo {
@@ -28,5 +27,4 @@
 .Toolbar .Logo h1 a {
     text-decoration: none;
     color: black;
-
 }
