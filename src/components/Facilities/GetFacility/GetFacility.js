@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import classes from './GetFacility.module.css';
 import { AuthContext } from '../../../App';
 import Image from '../../../assets/pitch (1).svg';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const GetFacility = () => {
     const { isAuth } = React.useContext(AuthContext);
@@ -31,6 +32,7 @@ const GetFacility = () => {
         }
         // eslint-disable-next-line
     }, [isAuth]);
+
     const Facility = () => {
         return (
             <div className={classes.Facility} >
@@ -60,13 +62,15 @@ const GetFacility = () => {
     }
 
     return (
-        <div className={classes.GetFacility}>
+        <div className={classes.App}>
             {isLoading ? (
-                <div className={classes.Loading}>Loading...</div>
+                <div className={classes.Spinner}>
+                    <Spinner />
+                </div>
             ) : (
                 <Fragment>
                     {handledFacility ? (
-                        <Facility />
+                        <Facility className={classes.GetFacility} />
 
                     ) : (
                         null)}

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import axios from "axios";
+
 import classes from './Facilities.module.css';
 import Facility from './Facility/Facility';
-import Search from '../Search/Search'
+import Search from '../Search/Search';
 import { AuthContext } from '../../App';
+import Spinner from '../UI/Spinner/Spinner';
 
 const Facilities = (props) => {
     const [facilities, setFacilities] = useState([]);
@@ -46,11 +47,11 @@ const Facilities = (props) => {
                     });
                     setPagination(response.data.pagination.total);
                     setFacilities(loadedFacilities);
-                    setIsLoading(false);
+                    setIsLoading(false)
+
                 });
         }
     }, [isAuth, filters]);
-
     const routeChange = (id) => {
         let path = `facilities/${id}`;
         history.push(path);
@@ -61,7 +62,7 @@ const Facilities = (props) => {
             <Search onClicked={setFilters} />
             <h2 className={classes.ResultsNmb}>Total:{pagination}</h2>
             {isLoading ? (
-                <div className={classes.Loading}>Loading...</div>
+                <Spinner />
             ) : (
                 <div className={classes.Objects}>
                     {facilities.map(facility =>
@@ -74,8 +75,9 @@ const Facilities = (props) => {
                             clicked={() => { routeChange(facility.id) }}
                         />)}
                 </div>
-            )}
-        </section>
+            )
+            }
+        </section >
     );
 }
 export default Facilities;
